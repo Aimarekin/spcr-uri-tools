@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"module": "ESNext",
+		"target": "ES2016",
+		"lib": ["ES2016", "DOM"],
+		"moduleResolution": "node",
+		"removeComments": false,
+		"outDir": "dist",
+		"declaration": true,
+		"sourceMap": true,
+		"rootDir": "src"
+	},
+	"include": [ "src/**/*" ]
+}
