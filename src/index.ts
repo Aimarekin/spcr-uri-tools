@@ -9,9 +9,7 @@ export type SpicetifyURIType = (typeof Spicetify.URI.Type)[keyof typeof Spicetif
  * @returns The Spicetify URI.
  * @throws {Error} If the input is not a valid Spicetify URI.
  */
-export function assertURI(uri: StringOrURI): Spicetify.URI;
-export function assertURI(uri: any): never;
-export function assertURI(uri: any): Spicetify.URI | never {
+export function assertURI(uri: any): Spicetify.URI {
 	uri = Spicetify.URI.from(uri);
 	if (!(uri instanceof Spicetify.URI)) {
 		throw new Error("Object is not a Spicetify.URI instance");
@@ -28,9 +26,7 @@ export function assertURI(uri: any): Spicetify.URI | never {
  * @returns An array of Spicetify URIs.
  * @throws {Error} If the input is not a valid Spicetify URI.
  */
-export function assertURIArray(uris: StringOrURIArrayable): Spicetify.URI[];
-export function assertURIArray(uris: any): never;
-export function assertURIArray(uris: any): Spicetify.URI[] | never {
+export function assertURIArray(uris: any): Spicetify.URI[] {
 	if (!Array.isArray(uris)) {
 		uris = [uris];
 	}
@@ -47,9 +43,7 @@ export function assertURIArray(uris: any): Spicetify.URI[] | never {
  * @throws {Error} If the input URI object is not a Spicetify.URI instance or if its type does not match the expected type(s).
  * @throws {Error} If validType is not a string, Set, or iterable.
  */
-export function assertURIType(uri: StringOrURI, validType: SpicetifyURIType | Iterable<SpicetifyURIType>): Spicetify.URI;
-export function assertURIType(uri: any, validType: SpicetifyURIType | Iterable<SpicetifyURIType>): never;
-export function assertURIType(uri: any, validType: SpicetifyURIType | Iterable<SpicetifyURIType>): Spicetify.URI | never {
+export function assertURIType(uri: any, validType: SpicetifyURIType | Iterable<SpicetifyURIType>): Spicetify.URI {
 	if (!(uri instanceof Spicetify.URI)) {
 		throw new Error("Object is not a Spicetify.URI instance");
 	}
@@ -85,9 +79,7 @@ export function assertURIType(uri: any, validType: SpicetifyURIType | Iterable<S
  * @throws {Error} If input object is not an array with Spicetify.URI instances or if its type does not match the expected type(s).
  * @throws {Error} If validType is not a string, Set, or iterable.
  */
-export function assertURIArrayType(URIArray: StringOrURI[], validType: Parameters<typeof assertURIType>[1]): Spicetify.URI[];
-export function assertURIArrayType(URIArray: any, validType: Parameters<typeof assertURIType>[1]): never;
-export function assertURIArrayType(URIArray: any[], validType: Parameters<typeof assertURIType>[1]): Spicetify.URI[] | never {
+export function assertURIArrayType(URIArray: any[], validType: Parameters<typeof assertURIType>[1]): Spicetify.URI[] {
 	if (!Array.isArray(URIArray)) {
 		throw new Error("Object is not an array");
 	}
